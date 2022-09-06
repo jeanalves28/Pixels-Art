@@ -39,6 +39,12 @@ h1 {
   background-color: green;
 }
 
+#button-random-color {
+  position: relative;
+  left: 1250px;
+  bottom: 20px;
+}
+
 #quadro-negro {
   position: relative;
   top: 90px;
