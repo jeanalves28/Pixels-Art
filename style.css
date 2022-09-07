@@ -23,8 +23,8 @@ h1 {
   border-radius: 50%;
 }
 
-.color:nth-child( 1 ) {
-  background-color: black; /* requisito 3 */
+.selected {
+  background-color: black; /* requisito 3 e 8 */
 }
 
 .color:nth-child( 2 ) {
@@ -55,10 +55,10 @@ h1 {
 }
 
 .pixel {
-  border: 1px solid black;
+  border: 1px solid black; /* requisito 7 */
   background-color: white;
-  width: 80px;
-  height: 70px;
+  width: 40px; /* requisito 7 */
+  height: 40px; /* requisito 7 */
   display: block;
   float: left;
   margin: auto;

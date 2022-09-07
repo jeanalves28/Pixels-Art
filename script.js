@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 document.querySelector('#button-random-color').addEventListener('click', () => {
   const paletaColor = document.querySelectorAll('.color');
   const SelectorColors = ['Purple', 'Yellow', 'Brown', 'Violet', 'Cyan', 'Grey', 'Tomato',
@@ -12,7 +11,6 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
     color2 = Math.round(Math.random() * SelectorColors.length);
     color3 = Math.round(Math.random() * SelectorColors.length);
   } while (color1 === color2 || color1 === color3 || color2 === color3);
-  paletaColor[0].style.backgroundColor = 'Black';
   paletaColor[1].style.backgroundColor = SelectorColors[color1];
   paletaColor[2].style.backgroundColor = SelectorColors[color2];
   paletaColor[3].style.backgroundColor = SelectorColors[color3];
@@ -20,6 +18,7 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
 let valor;
 document.querySelectorAll('.color')[0].addEventListener('click', () => {
   const pixel = document.querySelectorAll('.color')[0];
+  // eslint-disable-next-line sonarjs/no-duplicate-string
   valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
 });
 document.querySelectorAll('.color')[1].addEventListener('click', () => {
