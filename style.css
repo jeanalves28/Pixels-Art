@@ -49,8 +49,9 @@ h1 {
 
 #pixel-board {
   margin: auto;
-  width: 422px;
-  height: 372px;
+  width: 410px;
+  height: 360px;
+  border: 1px solid black;
 }
 
 .pixel {
@@ -58,7 +59,7 @@ h1 {
   background-color: white;
   width: 80px;
   height: 70px;
-  box-sizing: border-box;
-  display: inline-block;
-  margin: -2px;
+  display: block;
+  float: left;
+  margin: auto;
 }
