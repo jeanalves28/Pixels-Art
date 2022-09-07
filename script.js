@@ -16,8 +16,8 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
   paletaColor[3].style.backgroundColor = SelectorColors[color3];
 });
 let valor;
-document.querySelectorAll('.color')[0].addEventListener('click', () => {
-  const pixel = document.querySelectorAll('.color')[0];
+document.querySelector('.selected').addEventListener('click', () => {
+  const pixel = document.querySelector('.selected');
   // eslint-disable-next-line sonarjs/no-duplicate-string
   valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
 });
