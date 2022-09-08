@@ -42,6 +42,7 @@
 #buttons {
   margin: 15px auto;
   width: max-content;
+  justify-content: center;
 }
 
 #buttons div {
@@ -70,5 +71,4 @@
   height: 40px; /* requisito 7 */
   display: block;
   float: left;
-  margin: auto;
 }
