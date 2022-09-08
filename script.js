@@ -1,5 +1,8 @@
+const paletaColor = document.querySelectorAll('.color');
+const pixels = document.querySelectorAll('.pixel');
+let valor = null;
+
 document.querySelector('#button-random-color').addEventListener('click', () => {
-  const paletaColor = document.querySelectorAll('.color');
   const SelectorColors = ['Purple', 'Yellow', 'Brown', 'Violet', 'Cyan', 'Grey', 'Tomato',
     'Orange', 'Gold', 'Magenta', 'Maroon', 'Indigo', 'Lime', 'DeepPink', 'Olive', 'Silver',
     'Teal', 'Navy', 'Red', 'Blue', 'Green'];
@@ -17,136 +20,22 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
 });
 
 document.querySelector('#clear-board').addEventListener('click', () => {
-  const pixels = document.querySelectorAll('.pixel');
-  for (let i = 0; i < pixels.length; i += 1) pixels[i].style.backgroundColor = 'transparent';
+  for (let i = 0; i < pixels.length; i += 1) pixels[i].style.backgroundColor = 'White';
 });
 
-let valor;
-
-document.querySelectorAll('.color')[0].addEventListener('click', () => {
-  const pixel = document.querySelectorAll('.color')[0];
-  // eslint-disable-next-line sonarjs/no-duplicate-string
-  valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
-  document.querySelector('.selected').classList.remove('selected');
-  pixel.classList.add('selected');
+paletaColor.forEach((i) => {
+  i.addEventListener('click', (e) => {
+    const element = e.target;
+    valor = window.getComputedStyle(element).getPropertyValue('background-color');
+    document.querySelector('.selected').classList.remove('selected');
+    element.classList.add('selected');
+  });
 });
 
-document.querySelectorAll('.color')[1].addEventListener('click', () => {
-  const pixel = document.querySelectorAll('.color')[1];
-  valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
-  document.querySelector('.selected').classList.remove('selected');
-  pixel.classList.add('selected');
-});
-
-document.querySelectorAll('.color')[2].addEventListener('click', () => {
-  const pixel = document.querySelectorAll('.color')[2];
-  valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
-  document.querySelector('.selected').classList.remove('selected');
-  pixel.classList.add('selected');
-});
-
-document.querySelectorAll('.color')[3].addEventListener('click', () => {
-  const pixel = document.querySelectorAll('.color')[3];
-  valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
-  document.querySelector('.selected').classList.remove('selected');
-  pixel.classList.add('selected');
-});
-
-document.querySelector('.pixel').addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[1].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-document.querySelectorAll('.pixel')[2].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[3].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[4].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[5].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[6].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[7].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[8].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[9].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[10].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[11].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[12].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[13].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[14].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[15].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[16].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[17].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[18].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[19].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[20].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[21].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[22].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[23].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
-
-document.querySelectorAll('.pixel')[24].addEventListener('click', (e) => {
-  e.target.style.backgroundColor = valor;
-});
+for (let i = 0; i < pixels.length; i += 1) {
+  // eslint-disable-next-line no-loop-func
+  pixels[i].addEventListener('click', (e) => {
+    if (typeof valor === 'string') e.target.style.backgroundColor = valor;
+    else e.target.style.backgroundColor = 'Black';
+  });
+}
