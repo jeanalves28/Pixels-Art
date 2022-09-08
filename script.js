@@ -25,17 +25,15 @@ document.querySelector('#clear-board').addEventListener('click', () => {
 
 paletaColor.forEach((i) => {
   i.addEventListener('click', (e) => {
-    const element = e.target;
-    valor = window.getComputedStyle(element).getPropertyValue('background-color');
+    valor = window.getComputedStyle(e.target).getPropertyValue('background-color');
     document.querySelector('.selected').classList.remove('selected');
-    element.classList.add('selected');
+    e.target.classList.add('selected');
   });
 });
 
-for (let i = 0; i < pixels.length; i += 1) {
-  // eslint-disable-next-line no-loop-func
-  pixels[i].addEventListener('click', (e) => {
+pixels.forEach((i) => {
+  i.addEventListener('click', (e) => {
     if (typeof valor === 'string') e.target.style.backgroundColor = valor;
     else e.target.style.backgroundColor = 'Black';
   });
-}
+});
