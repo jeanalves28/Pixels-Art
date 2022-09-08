@@ -23,7 +23,7 @@
   border-radius: 50%;
 }
 
-.selected {
+.color:nth-child( 1 ) {
   background-color: black; /* requisito 3 e 8 */
 }
 

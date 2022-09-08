@@ -18,29 +18,38 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
 
 document.querySelector('#clear-board').addEventListener('click', () => {
   const pixels = document.querySelectorAll('.pixel');
-  for (let i = 0; i < pixels.length; i += 1) pixels[i].style.backgroundColor = 'White';
+  for (let i = 0; i < pixels.length; i += 1) pixels[i].style.backgroundColor = 'transparent';
 });
 
 let valor;
-document.querySelector('.selected').addEventListener('click', () => {
-  const pixel = document.querySelector('.selected');
+
+document.querySelectorAll('.color')[0].addEventListener('click', () => {
+  const pixel = document.querySelectorAll('.color')[0];
   // eslint-disable-next-line sonarjs/no-duplicate-string
   valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
+  document.querySelector('.selected').classList.remove('selected');
+  pixel.classList.add('selected');
 });
 
 document.querySelectorAll('.color')[1].addEventListener('click', () => {
   const pixel = document.querySelectorAll('.color')[1];
   valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
+  document.querySelector('.selected').classList.remove('selected');
+  pixel.classList.add('selected');
 });
 
 document.querySelectorAll('.color')[2].addEventListener('click', () => {
   const pixel = document.querySelectorAll('.color')[2];
   valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
+  document.querySelector('.selected').classList.remove('selected');
+  pixel.classList.add('selected');
 });
 
 document.querySelectorAll('.color')[3].addEventListener('click', () => {
   const pixel = document.querySelectorAll('.color')[3];
   valor = window.getComputedStyle(pixel).getPropertyValue('background-color');
+  document.querySelector('.selected').classList.remove('selected');
+  pixel.classList.add('selected');
 });
 
 document.querySelector('.pixel').addEventListener('click', (e) => {
