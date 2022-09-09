@@ -1,4 +1,4 @@
-const paletaColor = document.querySelectorAll('.color');
+const paletaDeCores = document.querySelectorAll('.color');
 const pixels = document.querySelectorAll('.pixel');
 let valor = null;
 
@@ -14,16 +14,16 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
     color2 = Math.round(Math.random() * SelectorColors.length);
     color3 = Math.round(Math.random() * SelectorColors.length);
   } while (color1 === color2 || color1 === color3 || color2 === color3);
-  paletaColor[1].style.backgroundColor = SelectorColors[color1];
-  paletaColor[2].style.backgroundColor = SelectorColors[color2];
-  paletaColor[3].style.backgroundColor = SelectorColors[color3];
+  paletaDeCores[1].style.backgroundColor = SelectorColors[color1];
+  paletaDeCores[2].style.backgroundColor = SelectorColors[color2];
+  paletaDeCores[3].style.backgroundColor = SelectorColors[color3];
 });
 
 document.querySelector('#clear-board').addEventListener('click', () => {
   for (let i = 0; i < pixels.length; i += 1) pixels[i].style.backgroundColor = 'White';
 });
 
-paletaColor.forEach((i) => {
+paletaDeCores.forEach((i) => {
   i.addEventListener('click', (e) => {
     valor = window.getComputedStyle(e.target).getPropertyValue('background-color');
     document.querySelector('.selected').classList.remove('selected');
@@ -37,3 +37,23 @@ pixels.forEach((i) => {
     else e.target.style.backgroundColor = 'Black';
   });
 });
+
+document.querySelector('#button-random-color').addEventListener('click', () => {
+  const listLocal = JSON.parse(localStorage.getItem('colorPalette'));
+  while (listLocal.length !== 0) listLocal.pop();
+  paletaDeCores.forEach((tag) => {
+    const valorBackground = window.getComputedStyle(tag).getPropertyValue('background-color');
+    listLocal.push(valorBackground);
+  });
+  localStorage.setItem('colorPalette', JSON.stringify(listLocal));
+});
+
+function iniciarLocalStorage() {
+  if (localStorage.getItem('colorPalette') === null) {
+    localStorage.setItem('colorPalette', JSON.stringify([]));
+  }
+}
+
+window.onload = () => {
+  iniciarLocalStorage();
+};
