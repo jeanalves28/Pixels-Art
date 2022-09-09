@@ -21,6 +21,14 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
 
 document.querySelector('#clear-board').addEventListener('click', () => {
   for (let i = 0; i < pixels.length; i += 1) pixels[i].style.backgroundColor = 'White';
+  const listLocal = JSON.parse(localStorage.getItem('pixelBoard'));
+  while (listLocal.length !== 0) listLocal.pop();
+  pixels.forEach((tag) => {
+    // eslint-disable-next-line sonarjs/no-duplicate-string
+    const valorBackground = window.getComputedStyle(tag).getPropertyValue('background-color');
+    listLocal.push(valorBackground);
+  });
+  localStorage.setItem('pixelBoard', JSON.stringify(listLocal));
 });
 
 paletaDeCores.forEach((i) => {
@@ -35,6 +43,13 @@ pixels.forEach((i) => {
   i.addEventListener('click', (e) => {
     if (typeof valor === 'string') e.target.style.backgroundColor = valor;
     else e.target.style.backgroundColor = 'Black';
+    const listLocal = JSON.parse(localStorage.getItem('pixelBoard'));
+    while (listLocal.length !== 0) listLocal.pop();
+    pixels.forEach((tag) => {
+      const valorBackground = window.getComputedStyle(tag).getPropertyValue('background-color');
+      listLocal.push(valorBackground);
+    });
+    localStorage.setItem('pixelBoard', JSON.stringify(listLocal));
   });
 });
 
@@ -48,6 +63,17 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
   localStorage.setItem('colorPalette', JSON.stringify(listLocal));
 });
 
+function iniciarLocalStorage2() {
+  if (localStorage.getItem('pixelBoard') === null) {
+    localStorage.setItem('pixelBoard', JSON.stringify([]));
+  } else {
+    const listLocal = JSON.parse(localStorage.getItem('pixelBoard'));
+    for (let i = 0; i < listLocal.length; i += 1) {
+      pixels[i].style.backgroundColor = listLocal[i];
+    }
+  }
+}
+
 function iniciarLocalStorage() {
   if (localStorage.getItem('colorPalette') === null) {
     localStorage.setItem('colorPalette', JSON.stringify([]));
@@ -57,6 +83,7 @@ function iniciarLocalStorage() {
       paletaDeCores[i].style.backgroundColor = listLocal[i];
     }
   }
+  iniciarLocalStorage2();
 }
 
 window.onload = () => {
