@@ -51,6 +51,11 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
 function iniciarLocalStorage() {
   if (localStorage.getItem('colorPalette') === null) {
     localStorage.setItem('colorPalette', JSON.stringify([]));
+  } else {
+    const listLocal = JSON.parse(localStorage.getItem('colorPalette'));
+    for (let i = 0; i < listLocal.length; i += 1) {
+      paletaDeCores[i].style.backgroundColor = listLocal[i];
+    }
   }
 }
 
