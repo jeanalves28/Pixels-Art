@@ -19,13 +19,16 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
   paletaDeCores[3].style.backgroundColor = SelectorColors[color3];
 });
 
+function getBackgroundColor(tag) {
+  return window.getComputedStyle(tag).getPropertyValue('background-color');
+}
+
 document.querySelector('#clear-board').addEventListener('click', () => {
   for (let i = 0; i < pixels.length; i += 1) pixels[i].style.backgroundColor = 'White';
   const listLocal = JSON.parse(localStorage.getItem('pixelBoard'));
   while (listLocal.length !== 0) listLocal.pop();
   pixels.forEach((tag) => {
-    // eslint-disable-next-line sonarjs/no-duplicate-string
-    const valorBackground = window.getComputedStyle(tag).getPropertyValue('background-color');
+    const valorBackground = getBackgroundColor(tag);
     listLocal.push(valorBackground);
   });
   localStorage.setItem('pixelBoard', JSON.stringify(listLocal));
@@ -46,7 +49,7 @@ pixels.forEach((i) => {
     const listLocal = JSON.parse(localStorage.getItem('pixelBoard'));
     while (listLocal.length !== 0) listLocal.pop();
     pixels.forEach((tag) => {
-      const valorBackground = window.getComputedStyle(tag).getPropertyValue('background-color');
+      const valorBackground = getBackgroundColor(tag);
       listLocal.push(valorBackground);
     });
     localStorage.setItem('pixelBoard', JSON.stringify(listLocal));
@@ -57,7 +60,7 @@ document.querySelector('#button-random-color').addEventListener('click', () => {
   const listLocal = JSON.parse(localStorage.getItem('colorPalette'));
   while (listLocal.length !== 0) listLocal.pop();
   paletaDeCores.forEach((tag) => {
-    const valorBackground = window.getComputedStyle(tag).getPropertyValue('background-color');
+    const valorBackground = getBackgroundColor(tag);
     listLocal.push(valorBackground);
   });
   localStorage.setItem('colorPalette', JSON.stringify(listLocal));
