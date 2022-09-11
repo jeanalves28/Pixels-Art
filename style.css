@@ -38,13 +38,12 @@
   background-color: green;
 }
 
-#buttons {
+.buttons {
   margin: 15px auto;
   width: max-content;
-  justify-content: center;
 }
 
-#buttons div {
+.buttons div {
   display: inline-block;
 }
 
@@ -52,14 +51,42 @@
   padding: 4px 5px;
 }
 
+#board-size {
+  width: 229px;
+  height: 21px;
+  border-radius: 5px;
+  border: 1.6px solid rgba(0, 0, 0, 0.74);
+}
+
+#input-number {
+  position: absolute;
+  left: calc(50% - 145px);
+  top: 189px;
+  background-color: white;
+  width: 157px;
+  height: max-content;
+  font-size: 15.5px;
+  text-align: center;
+  border-radius: 0;
+}
+
+input::placeholder {
+  font-style: italic;
+  font-size: smaller;
+}
+
 #clear-board {
+  padding: 4px 30px;
+}
+
+#generate-board {
   padding: 4px 30px;
 }
 
 #pixel-board {
   margin: auto;
-  width: 210px;
-  height: 210px;
+  width: calc(42px * 5);
+  height: calc(42px * 5);
   border: 1px solid black;
 }
 
