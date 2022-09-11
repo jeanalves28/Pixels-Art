@@ -141,6 +141,7 @@ paletaDeCores.forEach((i) => {
     e.target.classList.add('selected');
   });
 });
+
 pixels.forEach((pixel) => {
   pixel.addEventListener('click', (e) => {
     if (typeof valor === 'string') {
