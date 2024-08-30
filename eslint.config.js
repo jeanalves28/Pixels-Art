@@ -65,9 +65,13 @@ module.exports = [
 					next: [
 						'class',
 						'function',
+						'do',
+						'while',
+						'for',
 						'export',
 						'switch',
 						'case',
+						'break',
 						'default',
 						'try',
 						'if',
