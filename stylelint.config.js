@@ -14,6 +14,7 @@ module.exports = {
 			'row-gap',
 			'column-gap',
 			'position',
+			'inset',
 			'top',
 			'left',
 			'right',

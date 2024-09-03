@@ -3,10 +3,10 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "cypress run",
+    "sass": "sass form.sass out/form.css",
     "lint": "eslint .",
     "lint:styles": "stylelint **/*.css -c stylelint.config.js --ignore-disables --allow-empty-input --fix",
-    "cypress:open": "cypress open"
+    "start": "npm run sass"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
@@ -17,5 +17,8 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-order": "^6.0.4"
+  },
+  "dependencies": {
+    "sass": "^1.77.8"
   }
 }

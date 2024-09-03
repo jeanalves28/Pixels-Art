@@ -1,0 +1,245 @@
+/* <========= Container =========> */
+
+$bg-color: #ffffff
+$font-color-black: #000000
+$font-color-white: #ffffff
+$font-color-form: #212529
+$border-color-input: #dee2e6
+$border-thickness: 1px
+$rounded: 0.375rem
+$input-width: 100%
+$input-height: 3rem
+$button-width: 100%
+$button-height: 3rem
+$radio-width: 1rem
+$radio-height: 1rem
+
+/* <======== Colors =========> */
+
+$blue: #0d6efd
+$blue-hover: #0b5ed7
+$blue-border-hover: #0a58ca
+$blue-border-active: #0a53be
+$blue-shadow-rgba: rgba(49, 132, 253, .5)
+$green: #198754
+$green-hover: #157347
+$green-border-hover: #146c43
+$green-border-active: #13653f
+$green-shadow-rgba: rgba(60, 153, 110, .5)
+$red: #dc3545
+$red-hover: #bb2d3b
+$red-border-hover: #b02a37
+$red-border-active: #a52834
+$red-shadow-rgba: rgba(225, 83, 97, .5)
+$orange: #ffca2c
+$orange-hover: #ffc107
+$orange-border-hover: #ffc720
+$orange-active: #ffcd39
+$orange-disabled: #ffc107
+$orange-shadow-rgba: rgba(217, 164, 6, .5)
+$cyan: #0dcaf0
+$cyan-hover: #31d2f2
+$cyan-border-hover: #25cff2
+$cyan-active: #3dd5f3
+$cyan-disabled: #0dcaf0
+$cyan-shadow-rgba: rgba(11, 172, 204, .5)
+$light: #f8f9fa
+$light-hover: #d3d4d5
+$light-border-hover: #c6c7c8
+$light-border-active: #babbbc
+$light-shadow-rgba: rgba(211, 212, 213, .5)
+
+$blue-light: #86b7fe
+$blue-shadow: rgba(13, 110, 253, 0.25)
+$green-light: #86fe9a
+$green-shadow: rgba(13, 253, 121, 0.25)
+$red-light: #fe8686
+$red-shadow: rgba(253, 13, 13, 0.25)
+$orange-light: #fee286
+$orange-shadow: rgba(253, 217, 13, 0.25)
+$yellow-light: #fefc86
+$yellow-shadow: rgba(249, 253, 13, 0.25)
+
+@mixin input($color-primary, $color-focus)
+	color: $font-color-form
+	background-color: $bg-color
+	display: block
+	width: $input-width
+	height: 3rem
+	padding: 0.375rem 0.75rem
+	font-size: 1rem
+	font-weight: 400
+	line-height: 1.5
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	outline: none
+	background-clip: padding-box
+	border: $border-thickness solid $border-color-input
+	border-radius: $rounded
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+
+	&::placeholder
+		font-size: 11pt
+		font-style: italic
+		color: rgb(165, 165, 165)
+
+	&:focus
+		border-color: $color-primary
+		box-shadow: 0 0 0 0.25rem $color-focus
+
+@mixin radio
+	display: block
+	width: $radio-width
+	height: $radio-height
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	outline: none
+	border: 1px solid $border-color-input
+	border-radius: 50%
+	transition: border .15s ease-in-out, background-color .15s ease-in-out, box-shadow .15s ease-in-out
+
+	&:checked
+		background-color: white
+		border: 5px solid $blue
+
+	&:focus
+		background-color: white
+		border: 5px solid $blue
+		box-shadow: 0 0 0 0.25rem $blue-shadow
+
+	&:focus-visible
+		outline: 2px solid $blue
+		box-shadow: 0 0 0 0.15rem $blue-shadow
+		outline-offset: 4px
+
+@mixin button
+	display: block
+	width: $button-width
+	height: $button-height
+	cursor: pointer
+	padding: 0.375rem 0.75rem
+	font-size: 1rem
+	font-weight: 400
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	outline: none
+	background-clip: padding-box
+	border-radius: $rounded
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+
+@mixin button-default($color-primary, $color, $bg-hover, $border-hover, $bg-active, $border-active, $color-disabled, $color-shadow)
+	@include button
+
+	color: $color
+	background-color: $color-primary
+	border: $border-thickness solid $color-primary
+
+	&:not(:disabled):hover
+		color: $color
+		background-color: $bg-hover
+		border-color: $border-hover
+
+	&:not(:disabled):active
+		background-color: $bg-active
+		border-color: $border-active
+
+	&:not(:disabled):focus-visible
+		color: $color
+		background-color: $bg-hover
+		border-color: $border-hover
+		box-shadow: 0 0 0 0.25rem $color-shadow
+
+	&:disabled
+		color: $color
+		cursor: default
+		background-color: $color-disabled
+		border-color: $color-disabled
+		opacity: 0.65
+
+@mixin button-outline($color-primary, $color-hover, $color-active, $color-disabled, $color-shadow)
+	@include button
+
+	color: $color-primary
+	background-color: transparent
+	border: $border-thickness solid $color-primary
+
+	&:not(:disabled):hover
+		color: $color-hover
+		background-color: $color-primary
+		border-color: $color-primary
+
+	&:not(:disabled):active
+		color: $color-hover
+		background-color: $color-active
+		border-color: $color-active
+
+	&:not(:disabled):focus-visible
+		color: $color-hover
+		background-color: $color-primary
+		border-color: $color-primary
+		box-shadow: 0 0 0 0.25rem $color-shadow
+
+	&:disabled
+		color: $color-disabled
+		cursor: default
+		border-color: $color-disabled
+		opacity: 0.65
+
+label
+	color: $font-color-form
+
+.input-blue
+	@include input($blue-light, $blue-shadow)
+
+.input-red
+	@include input($red-light, $red-shadow)
+
+.input-green
+	@include input($green-light, $green-shadow)
+
+.input-orange
+	@include input($orange-light, $orange-shadow)
+
+.input-yellow
+	@include input($yellow-light, $yellow-shadow)
+
+.btn-blue
+	@include button-default($blue, $font-color-white, $blue-hover, $blue-border-hover, $blue-border-hover, $blue-border-active, $blue, $blue-shadow-rgba)
+
+.btn-outline-blue
+	@include button-outline($blue, $font-color-white, $blue-hover, $blue, $blue-shadow-rgba)
+
+.btn-green
+	@include button-default($green, $font-color-white, $green-hover, $green-border-hover, $green-border-hover, $green-border-active, $green, $green-shadow-rgba)
+
+.btn-outline-green
+	@include button-outline($green, $font-color-white, $green-hover, $green, $green-shadow-rgba)
+
+.btn-red
+	@include button-default($red, $font-color-white, $red-hover, $red-border-hover, $red-border-hover, $red-border-active, $red, $red-shadow-rgba)
+
+.btn-outline-red
+	@include button-outline($red, $font-color-white, $red-hover, $red, $red-shadow-rgba)
+
+.btn-orange
+	@include button-default($orange, $font-color-black, $orange-hover, $orange-border-hover, $orange-active, $orange-border-hover, $orange-disabled, $orange-shadow-rgba)
+
+.btn-outline-orange
+	@include button-outline($orange, $font-color-black, $orange-hover, $orange-disabled, $orange-shadow-rgba)
+
+.btn-cyan
+	@include button-default($cyan, $font-color-black, $cyan-hover, $cyan-border-hover, $cyan-border-hover, $cyan-active, $cyan-disabled, $cyan-shadow-rgba)
+
+.btn-outline-cyan
+	@include button-outline($cyan, $font-color-black, $cyan-hover, $cyan-disabled, $cyan-shadow-rgba)
+
+.btn-light
+	@include button-default($light, $font-color-black, $light-hover, $light-border-hover, $light-border-hover, $light-border-active, $light, $light-shadow-rgba)
+	&:disabled
+		color: $font-color-black
+
+.radio
+	@include radio
