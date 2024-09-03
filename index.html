@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Projeto Pixels Art</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" href="out/form.css" />
+  </head>
 
+  <body>
     <h1 id="title">Paleta de Cores</h1>
-    
-    <section id="color-palette">
-        <div class="color selected"></div>
-        <div class="color"></div>
-        <div class="color"></div>
-        <div class="color"></div>
+
+    <section class="container">
+      <div class="color selected"></div>
+      <div class="color"></div>
+      <div class="color"></div>
+      <div class="color"></div>
     </section>
 
-    <section class="buttons">
-        <div><button id="button-random-color">Cores aleatórias</button></div>
-        <div><button id="clear-board">Limpar</button></div>
+    <section class="container">
+      <div>
+        <button id="button-random-color" class="btn-blue">
+          Cores aleatórias
+        </button>
+      </div>
+      <div><button id="clear-board" class="btn-blue">Limpar</button></div>
     </section>
 
-    <section class="buttons">
-        <div><input id="board-size" type="number" min="1" placeholder="Insira um tamanho de 5 a 50 e click VQV"><label id="input-number">Insira um novo tamanho</label></div>
-        <div><button id="generate-board">VQV</button></div>
+    <section class="container">
+      <div id="container-input-number">
+        <label id="message-input">Insira um novo tamanho</label>
+        <input
+          id="input-size-pixels"
+          class="input-blue"
+          type="number"
+          min="5"
+          max="50"
+          placeholder="Insira um tamanho de 5 a 50 e click Gerar"
+        />
+      </div>
+      <div><button id="generate-board" class="btn-green">Gerar</button></div>
     </section>
 
-    <section id="pixel-board">
+    <section class="container">
+      <div id="pixel-board">
         <div class="pixel"></div>
         <div class="pixel"></div>
         <div class="pixel"></div>
@@ -54,8 +70,9 @@
         <div class="pixel"></div>
         <div class="pixel"></div>
         <div class="pixel"></div>
+      </div>
     </section>
 
-    <script src='script.js'></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
